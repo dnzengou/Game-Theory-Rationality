@@ -31,7 +31,7 @@ Then open your browser to [http://127.0.0.1:8521/](http://127.0.0.1:8521/) and p
 * ``run.py``: Launches the visualization 
 
 # Spatial game simulation
-Simulation of evolutionary game dynamics on a spatial grid. Demo here:
+Simulation of evolutionary game dynamics on a spatial grid, with Recycler agent in green and Wasteful agent in yellow.  Demo here:
 
 <a href="https://youtu.be/7fIpENTIISg" target="_blank"><img src="conways_game_of_life/img/urban-sprawl-effect_mesavizu.png" alt="demo at https://youtu.be/7fIpENTIISg" width="240" height="180" border="10"/></a>
 
