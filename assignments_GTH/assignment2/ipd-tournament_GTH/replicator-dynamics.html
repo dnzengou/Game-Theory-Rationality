@@ -1,0 +1,66 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/codemirror.css">
+  <link rel="stylesheet" href="css/monokai.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <fieldset id="settings">
+    <h2>Replicator dynamics simulation</h2>
+    <p style="max-width: 800px;">
+    The general idea of the replicator dynamics simulation is found, e.g., on Wikipedia.
+      <a href="https://en.wikipedia.org/wiki/Replicator_equation">https://en.wikipedia.org/wiki/Replicator_equation</a>. This simulation uses a fixed matrix A of expected payoffs for each strategy pair. Given a vector x of abundances, the average payoff of each strategy is Ax, i.e., its expected payoff against the population including itself. The fitness of each strategy is Ax - x<sup>T</sup>Ax, i.e., the difference between its expected payoff and the expected payoff in the whole population. TThe simulation then takes discrete time steps, updating each element x<sub>k</sub> of the abundance vector using a step proportional to its present value times the fitness:
+    </p>
+    <p style="max-width: 800px;">
+      x<sup>t+1</sup><sub>k</sub> = x<sup>t</sup><sub>k</sub> (1 + a * fitness<sub>k</sub>).
+    </p>
+    <p style="max-width: 800px;">
+      Here, a is a scalar step size or "selection pressure" parameter. If any of the abundances fall below the extinction limit, it is set to zero and the remaining abundances are renormalized so they sum to 1.
+    </p>
+    <p style="max-width: 800px;">Set the parameters and hit Precompute. This calculates the average strategy-vs-strategy payoffs based on playing the repeated IPD for (Number of rounds) with each pair of strategies. The strategies included are all that match the regular expression. Each element in the payoff matrix is calculated as the average of (Number of runs) separate runs.</p>
+    <p style="max-width: 800px;">After running the Precompute step, hit Run. This runs a replicator dynamics simulation based on the precomputed payoffs.</p>
+  <div class="parameters">
+    <label for="regex">Regex (use .* to include all)</label> <input type="text" id="regex" value="10(a|b|c)$">
+    <br/>
+    <label for="mistakeRate">Mistake rate</label> <input type="text" id="mistakeRate" value="0">
+    <br/>
+    <label for="numRounds">Number of rounds</label> <input type="text" id="numRounds" value="10">
+    <br/>
+    <label for="numReps">Number of runs</label> <input type="text" id="numReps" value="30">
+  <!-- </div> -->
+  <!-- <div class="parameters"> -->
+    <br/>
+    <label for="selectionPressure">Selection pressure (a)</label> <input type="text" id="selectionPressure" value="0.2">
+    <br/>
+    <label for="extinctionLimit">Extinction limit</label> <input type="text" id="extinctionLimit" value="1e-3">
+  </div>
+
+  <div class="parameters">
+  <button onclick="prep();" id="prep-button">Prepare</button>
+  <button onclick="toggleRun();" id="toggle-run-button">-</button>
+  <button onclick="rewind();" id="rewind-button">Rewind</button>
+  </div>
+  </fieldset>
+
+  <ul id="error">
+  </ul>
+
+  <div id="results">
+  <p style="margin-left: 100px">Abundance of the strategies</p>
+  <svg id="results-plot"></svg>
+  <div class="table-container">
+  <table id="results-table"></table>
+  </div>
+  <div style="clear: both;"></div>
+  </div>
+
+  <script type="text/javascript" src="js/d3.min.js"></script>
+  <script type="text/javascript" src="js/table.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/strategies.js"></script>
+  <script type="text/javascript" src="js/replicator-dynamics.js"></script>
+
+</body>
+</html>
