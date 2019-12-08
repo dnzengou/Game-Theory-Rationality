@@ -39,6 +39,6 @@ Simulation of evolutionary game dynamics on a spatial grid, with Recycler agent 
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 [Prisoner's Dilemma in One-Dimensional Cellular Automata: Visualization of Evolutionary Patterns](https://www.researchgate.net/publication/1761807_Prisoner%27s_Dilemma_in_One-Dimensional_Cellular_Automata_Visualization_of_Evolutionary_Patterns)
 [python turtle demo showing Rule 90 cellular automata](https://gist.github.com/mattvenn/8048066)
-[Urban Suite - Sprawl Effect](hhttps://ccl.northwestern.edu/netlogo/models/UrbanSuite-SprawlEffect)
+[Urban Suite - Sprawl Effect](https://ccl.northwestern.edu/netlogo/models/UrbanSuite-SprawlEffect)
 
 
